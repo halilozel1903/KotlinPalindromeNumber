@@ -2,13 +2,13 @@ fun main() {
     val range = 100..200 // define range of numbers to check for palindrome
 
     for (i in range) {
-        if (isPalindrome(i)) {
+        if (isPalindromeNumber(i)) {
             println("$i is a palindrome number")
         }
     }
 }
 
-fun isPalindrome(num: Int): Boolean {
+fun isPalindromeNumber(num: Int): Boolean {
     val str = num.toString() // convert number to string
 
     // check if string equals its reverse
