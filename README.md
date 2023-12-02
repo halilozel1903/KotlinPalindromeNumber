@@ -9,26 +9,11 @@ Here's a program in `Kotlin` that finds palindrome numbers:
 
 ```kotlin
 fun main() {
-    val range = 100..200 // define range of numbers to check for palindrome
-    
-    for (i in range) {
-        if (isPalindrome(i)) {
-            println("$i is a palindrome number")
+    for (number in 100..200) {
+        if (number.toString() == number.toString().reversed()) {
+            println("$number is a palindrome number")
         }
     }
-}
-
-fun isPalindrome(num: Int): Boolean {
-    val str = num.toString() // convert number to string
-    
-    // check if string equals its reverse
-    for (i in 0..str.length/2) {
-        if (str[i] != str[str.length-i-1]) {
-            return false
-        }
-    }
-    
-    return true
 }
 ```
 The program defines a range of numbers to check for palindrome by using `100..200`. The `isPalindrome()` function checks if a number is a palindrome by converting it to a string and comparing the string to its reverse. The program then loops through the range of numbers and checks each one using the `isPalindrome()` function. If a number is a palindrome, the program prints a message to the console.
