@@ -16,7 +16,7 @@ fun main() {
     }
 }
 ```
-The program defines a range of numbers to check for palindrome by using `100..200`. The `isPalindrome()` function checks if a number is a palindrome by converting it to a string and comparing the string to its reverse. The program then loops through the range of numbers and checks each one using the `isPalindrome()` function. If a number is a palindrome, the program prints a message to the console.
+The program defines a range of numbers to check for palindromes by using `100..200`. It converts each number to a string, compares that string to its reverse, and prints a message when the number is a palindrome.
 
 When we run the program, it will output all the palindrome numbers up to the limit we set:
 
@@ -43,7 +43,7 @@ If this project help 💁 you, Can you give me a cup of coffee? ☕
 ```
 MIT License
 
-Copyright (c) 2025 Halil OZEL
+Copyright (c) 2026 Halil OZEL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
