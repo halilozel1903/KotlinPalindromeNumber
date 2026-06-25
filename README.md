@@ -1,26 +1,31 @@
-## Kotlin Palindrome Number 3️⃣ 0️⃣ 3️⃣
+# Kotlin Palindrome Number 303
 
-![Kotlin Palindrome Number](https://inoxoft.com/wp-content/uploads/2018/12/Reasons-why-Kotlin-is-the-best-programming-language-for-Android-developers@3x-100-1.jpg)
+A small, modern Kotlin/JVM console project that prints palindrome numbers in the `100..200` range.
 
-A `palindrome` number is a number that remains the same when its digits are reversed. 
-For example, 121, 1221, and 12321 are palindrome numbers.
+A **palindrome number** reads the same from left to right and right to left. Examples: `121`, `1221`, and `12321`.
 
-Here's a program in `Kotlin` that finds palindrome numbers:
+## What is included
 
-```kotlin
-fun main() {
-    for (number in 100..200) {
-        if (number.toString() == number.toString().reversed()) {
-            println("$number is a palindrome number")
-        }
-    }
-}
+- Kotlin/JVM project configured with Gradle Kotlin DSL.
+- Numeric palindrome detection without converting numbers to strings.
+- Reusable `isPalindromeNumber` and `palindromeNumbersIn` functions.
+- Unit tests for positive, negative, and range-based cases.
+- Gradle Wrapper updated to Gradle `9.6.0`.
+
+## Requirements
+
+- JDK `17` or newer. Kotlin compiles to JVM 17 bytecode.
+- No local Gradle installation is required; use the included Gradle Wrapper.
+
+## Run
+
+```bash
+./gradlew run
 ```
-The program defines a range of numbers to check for palindromes by using `100..200`. It converts each number to a string, compares that string to its reverse, and prints a message when the number is a palindrome.
 
-When we run the program, it will output all the palindrome numbers up to the limit we set:
+Expected output:
 
-```kotlin
+```text
 101 is a palindrome number
 111 is a palindrome number
 121 is a palindrome number
@@ -33,33 +38,30 @@ When we run the program, it will output all the palindrome numbers up to the lim
 191 is a palindrome number
 ```
 
-## Donation 💸
+## Test
 
-If this project help 💁 you, Can you give me a cup of coffee? ☕
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/halilozel1903)
-
-## License ℹ️
+```bash
+./gradlew test
 ```
-MIT License
 
-Copyright (c) 2026 Halil OZEL
+## Core implementation
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+```kotlin
+fun isPalindromeNumber(number: Int): Boolean {
+    if (number < 0) return false
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+    var remaining = number
+    var reversed = 0
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+    while (remaining > 0) {
+        reversed = reversed * 10 + remaining % 10
+        remaining /= 10
+    }
+
+    return number == reversed
+}
 ```
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
